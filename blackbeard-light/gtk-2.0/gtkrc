@@ -1,7 +1,6 @@
-# ~/blackbeard-colorscheme/blackbeard-light/gtk-2.0/gtkrc
-# move to ~/.themes/blackbeard-light/gtk-2.0/gtkrc
+# ~/.themes/blackbeard-light/gtk-2.0/gtkrc
 
-# Color Definitions (for reference, not directly used in gtkrc)
+# Color Definitions (for reference)
 # bg            #F4E3C1
 # fg            #1C1B1A
 # cursor        #D13438
@@ -31,7 +30,7 @@ style "default"
   bg[PRELIGHT]    = "#F4E3C1"
   bg[ACTIVE]      = "#3A3735"
   bg[SELECTED]    = "#F4A259"
-  bg[INSENSITIVE] = "#F4E3C1"
+  bg[INSENSITIVE] = "#514A45"
 
   fg[NORMAL]      = "#1C1B1A"
   fg[PRELIGHT]    = "#1C1B1A"
@@ -50,16 +49,22 @@ style "default"
   text[ACTIVE]    = "#1C1B1A"
   text[SELECTED]  = "#1C1B1A"
   text[INSENSITIVE] = "#6A5E47"
-}
 
+  # Engine tweaks (optional, depends on installed theme engine like Clearlooks)
+  engine "clearlooks" {
+    roundness = 1
+    gradient_shades = {1.0, 0.9, 0.8}
+  }
+}
 class "*" style "default"
 
 # Window Background
 style "window"
 {
   bg[NORMAL] = "#F4E3C1"
+  bg[INSENSITIVE] = "#514A45"
 }
-class "GtkWindow" style "window"
+widget_class "*<GtkWindow>" style "window"
 
 # Buttons
 style "button"
@@ -67,34 +72,48 @@ style "button"
   bg[NORMAL]   = "#2A5A75"
   bg[PRELIGHT] = "#3A6A85"
   bg[ACTIVE]   = "#2A5A75"
+  bg[INSENSITIVE] = "#514A45"
   fg[NORMAL]   = "#1C1B1A"
+  fg[INSENSITIVE] = "#6A5E47"
+  xthickness = 4
+  ythickness = 4
 }
-class "GtkButton" style "button"
+widget_class "*<GtkButton>" style "button"
 
 # Entries
 style "entry"
 {
   bg[NORMAL]   = "#F4E3C1"
+  bg[INSENSITIVE] = "#3A3735"
   fg[NORMAL]   = "#1C1B1A"
+  fg[INSENSITIVE] = "#6A5E47"
   base[NORMAL] = "#F4E3C1"
+  base[INSENSITIVE] = "#3A3735"
   text[NORMAL] = "#1C1B1A"
+  text[INSENSITIVE] = "#6A5E47"
+  xthickness = 2
+  ythickness = 2
 }
-class "GtkEntry" style "entry"
+widget_class "*<GtkEntry>" style "entry"
 
 # Menu
 style "menu"
 {
   bg[NORMAL] = "#F4E3C1"
+  bg[INSENSITIVE] = "#3A3735"
   fg[NORMAL] = "#1C1B1A"
+  fg[INSENSITIVE] = "#6A5E47"
 }
-class "GtkMenu" style "menu"
+widget_class "*<GtkMenu>" style "menu"
 
 style "menuitem"
 {
   bg[PRELIGHT] = "#3A3735"
   fg[PRELIGHT] = "#1C1B1A"
+  bg[INSENSITIVE] = "#3A3735"
+  fg[INSENSITIVE] = "#6A5E47"
 }
-class "GtkMenuItem" style "menuitem"
+widget_class "*<GtkMenuItem>" style "menuitem"
 
 # Scrollbars
 style "scrollbar"
@@ -102,24 +121,31 @@ style "scrollbar"
   bg[NORMAL]   = "#F4E3C1"
   bg[PRELIGHT] = "#3A6A85"
   bg[ACTIVE]   = "#2A5A75"
+  bg[INSENSITIVE] = "#514A45"
+  xthickness = 6
+  ythickness = 6
 }
-class "GtkScrollbar" style "scrollbar"
+widget_class "*<GtkScrollbar>" style "scrollbar"
 
 # Tooltips
 style "tooltip"
 {
   bg[NORMAL] = "#3A3735"
   fg[NORMAL] = "#1C1B1A"
+  bg[INSENSITIVE] = "#514A45"
+  fg[INSENSITIVE] = "#6A5E47"
 }
-class "GtkTooltip" style "tooltip"
+widget_class "*<GtkTooltip>" style "tooltip"
 
 # Progress Bar
 style "progressbar"
 {
   bg[NORMAL]   = "#F4E3C1"
   fg[NORMAL]   = "#4A7C2A"
+  bg[INSENSITIVE] = "#514A45"
+  fg[INSENSITIVE] = "#5A8C3A"
 }
-class "GtkProgressBar" style "progressbar"
+widget_class "*<GtkProgressBar>" style "progressbar"
 
 # Notebook (Tabs)
 style "notebook"
@@ -127,5 +153,46 @@ style "notebook"
   bg[NORMAL]   = "#F4E3C1"
   bg[ACTIVE]   = "#2A5A75"
   fg[NORMAL]   = "#1C1B1A"
+  bg[INSENSITIVE] = "#514A45"
+  fg[INSENSITIVE] = "#6A5E47"
+  xthickness = 4
+  ythickness = 4
 }
-class "GtkNotebook" style "notebook"
+widget_class "*<GtkNotebook>" style "notebook"
+
+# Scales (Sliders)
+style "scale"
+{
+  bg[NORMAL]   = "#514A45"
+  fg[NORMAL]   = "#2A5A75"
+  bg[PRELIGHT] = "#3A6A85"
+  bg[ACTIVE]   = "#4A7C2A"
+  bg[INSENSITIVE] = "#3A3735"
+  xthickness = 4
+  ythickness = 4
+}
+widget_class "*<GtkScale>" style "scale"
+
+# Spinbuttons
+style "spinbutton"
+{
+  bg[NORMAL]   = "#F4E3C1"
+  fg[NORMAL]   = "#1C1B1A"
+  bg[INSENSITIVE] = "#3A3735"
+  fg[INSENSITIVE] = "#6A5E47"
+  xthickness = 2
+  ythickness = 2
+}
+widget_class "*<GtkSpinButton>" style "spinbutton"
+
+# Combobox
+style "combobox"
+{
+  bg[NORMAL]   = "#F4E3C1"
+  fg[NORMAL]   = "#1C1B1A"
+  bg[INSENSITIVE] = "#3A3735"
+  fg[INSENSITIVE] = "#6A5E47"
+  xthickness = 2
+  ythickness = 2
+}
+widget_class "*<GtkComboBox>" style "combobox"
