@@ -129,6 +129,7 @@ $theme_brwhite: if($dark, cp.$blackbeard-brwhite-dark, cp.$blackbeard-brwhite-li
 
 // Theme-Specific Colors
 $primary: $theme_selection_bg;
+$theme_primary: $primary;
 $background: $theme_bg;
 $surface: background('b');
 $base: $theme_bg;

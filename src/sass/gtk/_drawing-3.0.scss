@@ -1,4 +1,7 @@
-// ripple effect animations
+@use '../_color-palette' as cp;
+@use '../_colors' as *;
+@use '../_variables' as v;
+@use "sass:math";
 
 @keyframes ripple {
   to { background-size: 1000% 1000%; }
