@@ -1,23 +1,23 @@
 // sass/gnome-shell/_variables.scss
-@use '_tweaks';
+@use '../_tweaks' as t;
 
-$dark: true !default;    // Default to dark theme, configurable
-$light: false !default;  // Default to light theme, configurable
+$dark: true !default;   
+$light: false !default; 
 $asset-suffix: if($dark, '-dark', '');
 
 // Sizes
-$space-size: if(tweaks.$compact == 'false', 6px, 4px); 
-$small-size: if(tweaks.$compact == 'false', 24px, 22px); 
-$medium-size: if(tweaks.$compact == 'false', 36px, 32px); 
-$large-size: if(tweaks.$compact == 'false', 48px, 40px); 
-$menuitem-size: if(tweaks.$compact == 'false', 28px, 24px); 
-$root-font-size: if(tweaks.$compact == 'false', 14px, 13px); 
+$space-size: if(t.$compact == 'false', 6px, 4px); 
+$small-size: if(t.$compact == 'false', 24px, 22px); 
+$medium-size: if(t.$compact == 'false', 36px, 32px); 
+$large-size: if(t.$compact == 'false', 48px, 40px); 
+$menuitem-size: if(t.$compact == 'false', 28px, 24px); 
+$root-font-size: if(t.$compact == 'false', 14px, 13px); 
 
 // Radii
-$modal-radius: tweaks.$default_corner; 
-$corner-radius: tweaks.$default_corner; 
-$menu-radius: if(tweaks.$compact == 'false', $corner-radius + $space-size, $corner-radius); 
-$window-radius: if(tweaks.$compact == 'false', $corner-radius + $space-size, $corner-radius); 
+$modal-radius: t.$default_corner; 
+$corner-radius: t.$default_corner; 
+$menu-radius: if(t.$compact == 'false', $corner-radius + $space-size, $corner-radius); 
+$window-radius: if(t.$compact == 'false', $corner-radius + $space-size, $corner-radius); 
 $circular-radius: 9999px; 
 
 // Durations

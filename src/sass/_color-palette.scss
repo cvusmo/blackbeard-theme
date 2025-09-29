@@ -298,7 +298,9 @@ $black: #000000;
 // White
 $white: #FFFFFF;
 
-// Blackbeard Custom Palette (Inspired by Gruvbox and Your Themes)
+// Blackbeard Custom Palette (Inspired by Gruvbox)
+$blackbeard-bg-dark: #1C1B1A;
+$blackbeard-fg-dark: #F4E3C1;
 $blackbeard-bg-light: #F4E3C1;
 $blackbeard-fg-light: #1C1B1A;
 $blackbeard-selection-bg: #9280E8;
@@ -308,6 +310,8 @@ $blackbeard-black-light: #3A3735;
 $blackbeard-black-dark: #454240;
 $blackbeard-red-light: #8B1A1E;
 $blackbeard-red-dark: #D13438;
+$blackbeard-orange-light: #af3a03;
+$blackbeard-orange-dark: #d65d0e;
 $blackbeard-green-light: #4A7C2A;
 $blackbeard-green-dark: #73A857;
 $blackbeard-yellow-light: #A67F20;
@@ -316,7 +320,9 @@ $blackbeard-blue-light: #2A5A75;
 $blackbeard-blue-dark: #5A8CA5;
 $blackbeard-magenta-light: #6A3A8A;
 $blackbeard-magenta-dark: #A066C9;
-$blackbeard-cyan-light: #2A5A75; // Reuses blue for light
+$blackbeard-purple-light: #6A3A8A; 
+$blackbeard-purple-dark: #A066C9;
+$blackbeard-cyan-light: #2A5A75;
 $blackbeard-cyan-dark: #46B9A0;
 $blackbeard-white-light: #6A5E47;
 $blackbeard-white-dark: #AA9E87;
@@ -332,13 +338,12 @@ $blackbeard-brblue-light: #3A6A85;
 $blackbeard-brblue-dark: #73B3D8;
 $blackbeard-brmagenta-light: #8A5AB4;
 $blackbeard-brmagenta-dark: #B794F4;
-$blackbeard-brcyan-light: #3A6A85; // Reuses brblue for light
+$blackbeard-brcyan-light: #3A6A85;
 $blackbeard-brcyan-dark: #6FE2CA;
 $blackbeard-brwhite-light: #C9B999;
 $blackbeard-brwhite-dark: #F6E8CD;
 
-// Gruvbox-Inspired Additions
 $gruvbox-orange-light: #af3a03;
 $gruvbox-orange-dark: #d65d0e;
-$gruvbox-purple-light: #6A3A8A; // Reuses magenta
-$gruvbox-purple-dark: #A066C9; // Reuses magenta
+$gruvbox-purple-light: #6A3A8A; 
+$gruvbox-purple-dark: #A066C9; 

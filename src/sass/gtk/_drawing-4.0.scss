@@ -1,7 +1,6 @@
-// generic drawing of more complex things
+@use "../_colors" as *;
 
 // ripple effect animations
-
 @keyframes ripple {
   from {
     background-image: radial-gradient(circle farthest-corner at center, $overlay-checked 30%, transparent 0%);
@@ -74,7 +73,7 @@
     background-color: if($fc == $primary, $entry, rgba($fc, 0.1));
     box-shadow: inset 0 0 0 2px transparent;
     color: if($fc == $primary, $text, $fc);
-    outline: 2px solid if($fc == $primary, $primary, $fc);
+    outline: 2px solid if($fc == $primary, $theme_primary, $fc);
     outline-offset: -2px;
   }
 
@@ -101,7 +100,7 @@
 
   @if $t == raised-focus {
     border-image: none;
-    box-shadow: inset 0 0 0 2px if($fc == $primary, $primary, $fc);
+    box-shadow: inset 0 0 0 2px if($fc == $primary, $theme_primary, $fc);
   }
 
   @if $t == raised-disabled {

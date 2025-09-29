@@ -1,36 +1,24 @@
+@use '_colors' as *;      
+
 * {
   // padding: 0;
   background-clip: padding-box;
 
   -GtkToolButton-icon-spacing: 0;
   -GtkTextView-error-underline-color: $error;
-
-  // The size for scrollbars. The slider is 2px smaller, but we keep it
-  // up so that the whole area is sensitive to button presses for the
-  // slider. The stepper button is larger in both directions, the slider
-  // only in the width
-
   -GtkScrolledWindow-scrollbar-spacing: 0;
-
   -GtkToolItemGroup-expander-size: 11;
-
   -GtkWidget-text-handle-width: 24;
   -GtkWidget-text-handle-height: 24;
-
   -GtkDialog-button-spacing: $space-size / 1px;
   -GtkDialog-action-area-border: $space-size / 1px;
-
-  // We use the outline properties to signal the focus properties
-  // to the adwaita engine: using real CSS properties is faster,
-  // and we don't use any outlines for now.
 
   outline-style: solid;
   outline-width: 2px;
   outline-color: transparent;
   outline-offset: -4px;
   -gtk-outline-radius: $corner-radius;
-
-  -gtk-secondary-caret-color: $primary;
+  -gtk-secondary-caret-color: cp.$blackbeard-fg-dark;
 
   &:focus { outline-color: $overlay-checked; }
 }
@@ -41,13 +29,13 @@
 }
 
 %selected_items_color {
-  color: $primary;
-  background-color: rgba($primary, 0.2);
+  color: cp.$blackbeard-fg-dark;
+  background-color: rgba(cp.$blackbeard-fg-dark, 0.2);
 }
 
 %selected_items_primary {
-  color: on($primary);
-  background-color: $primary;
+  color: on(cp.$blackbeard-fg-dark);
+  background-color: cp.$blackbeard-fg-dark;
 }
 
 %linked {
@@ -90,7 +78,7 @@
  * Base States *
  ***************/
 .background {
-  background-color: $background;
+  background-color: cp.$blackbeard-bg-dark;
   color: $text;
 
   &.csd { // Set csd windows botttom border radius
@@ -124,8 +112,8 @@
   }
 
   &:selected {
-    background-color: $primary;
-    color: on($primary);
+    background-color: cp.$blackbeard-fg-dark;
+    color: on(cp.$blackbeard-fg-dark);
   }
 }
 
@@ -180,8 +168,8 @@ iconview {
 
 .rubberband,
 rubberband {
-  border: 1px solid $primary;
-  background-color: rgba($primary, 0.3);
+  border: 1px solid cp.$blackbeard-fg-dark;
+  background-color: rgba(cp.$blackbeard-fg-dark, 0.3);
 }
 
 flowbox {
@@ -344,7 +332,7 @@ entry {
 
   progress {
     margin: 2px -8px;
-    border-bottom: 2px solid $primary;
+    border-bottom: 2px solid cp.$blackbeard-fg-dark;
     background-color: transparent;
   }
 
@@ -442,7 +430,7 @@ treeview entry {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.001,
-                                    to($primary),
+                                    to(cp.$blackbeard-fg-dark),
                                     to(transparent));
   }
 
@@ -450,7 +438,7 @@ treeview entry {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center center, 0.5,
-                                    to($primary),
+                                    to(cp.$blackbeard-fg-dark),
                                     to(transparent));
   }
 }
@@ -592,17 +580,17 @@ button {
     min-width: $small-size;
     min-width: $small-size;
     padding: ($large-size - 24px) / 2 ($large-size - 16px) / 2;
-    background-color: $primary;
-    color: on($primary);
+    background-color: cp.$blackbeard-fg-dark;
+    color: on(cp.$blackbeard-fg-dark);
 
     &:hover {
-      background-color: mix(on($primary), $primary, 12%);
-      color: on($primary);
+      background-color: mix(on(cp.$blackbeard-fg-dark), cp.$blackbeard-fg-dark, 12%);
+      color: on(cp.$blackbeard-fg-dark);
     }
 
     &:active {
-      background-color: mix(on($primary), $primary, 26%);
-      color: on($primary);
+      background-color: mix(on(cp.$blackbeard-fg-dark), cp.$blackbeard-fg-dark, 26%);
+      color: on(cp.$blackbeard-fg-dark);
     }
 
     &.image-button, &.circular {
@@ -975,7 +963,7 @@ button.combo:only-child {
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: 2px;
-  background-color: $background;
+  background-color: cp.$blackbeard-bg-dark;
 
   button { @extend %button-flat; }
 
@@ -1049,7 +1037,7 @@ searchbar > revealer > box,
   border-style: solid;
   border-width: 0 0 1px;
   border-color: $divider;
-  background-color: $background;
+  background-color: cp.$blackbeard-bg-dark;
   background-clip: border-box;
 }
 
@@ -1215,44 +1203,44 @@ searchbar > revealer > box {
     // but let's keep it for backwards compatibility.
     transition: background-color 0.1ms $ripple-fade-in-duration, color $duration $ease-out;
     animation: ripple-on-headerbar $ripple-fade-in-duration $ease-out;
-    box-shadow: inset 0 1px highlight($primary);
-    background-color: $primary;
-    color: on($primary);
+    box-shadow: inset 0 1px highlight(cp.$blackbeard-fg-dark);
+    background-color: cp.$blackbeard-fg-dark;
+    color: on(cp.$blackbeard-fg-dark);
 
     &:backdrop {
-      color: on($primary, secondary);
+      color: on(cp.$blackbeard-fg-dark, secondary);
     }
 
-    .subtitle:link { color: on($primary); }
+    .subtitle:link { color: on(cp.$blackbeard-fg-dark); }
 
     button:not(.suggested-action):not(.destructive-action) {
       border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                     currentColor 0%,
                                     transparent 0%)
                                     0 0 0 / 0 0 0px;
-      color: on($primary);
+      color: on(cp.$blackbeard-fg-dark);
 
-      &:disabled { color: on($primary, disabled); }
+      &:disabled { color: on(cp.$blackbeard-fg-dark, disabled); }
 
       &:checked {
         border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
                                       currentColor 100%,
                                       transparent 0%)
                                       0 0 2 / 0 0 2px;
-        color: on($primary);
+        color: on(cp.$blackbeard-fg-dark);
 
-        &:disabled { color: on($primary, disabled); }
+        &:disabled { color: on(cp.$blackbeard-fg-dark, disabled); }
       }
 
       &:backdrop {
-        color: on($primary, secondary);
+        color: on(cp.$blackbeard-fg-dark, secondary);
 
-        &:disabled { color: on($primary, secondary-disabled); }
+        &:disabled { color: on(cp.$blackbeard-fg-dark, secondary-disabled); }
 
         &:checked {
-          color: on($primary, secondary);
+          color: on(cp.$blackbeard-fg-dark, secondary);
 
-          &:disabled { color: on($primary, secondary-disabled); }
+          &:disabled { color: on(cp.$blackbeard-fg-dark, secondary-disabled); }
         }
       }
     }
@@ -1268,8 +1256,8 @@ searchbar > revealer > box {
   }
 
   .selection-mode {
-    box-shadow: inset 0 1px highlight($primary); // Avoid double shadows
-    background-color: $primary;
+    box-shadow: inset 0 1px highlight(cp.$blackbeard-fg-dark); // Avoid double shadows
+    background-color: cp.$blackbeard-fg-dark;
   }
 
   // squared corners when the window is maximized, tiled, or fullscreen
@@ -1439,14 +1427,14 @@ headerbar {
   padding-left: ($medium-size - 24px) / 2;
   padding-right: ($medium-size - 24px) / 2;
   border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                $primary 0%,
+                                cp.$blackbeard-fg-dark 0%,
                                 transparent 0%)
                                 0 0 0 / 0 0 0px;
   border-radius: $corner-radius;
 
   &:checked {
     border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
-                                  $primary 100%,
+                                  cp.$blackbeard-fg-dark 100%,
                                   transparent 0%)
                                   0 0 2 / 0 0 2px;
 
@@ -1533,10 +1521,10 @@ treeview.view {
   &.progressbar { // progress bar in treeviews
     border: none;
     box-shadow: none;
-    background-color: $primary;
+    background-color: cp.$blackbeard-fg-dark;
     background-image: none;
     border-radius: $circular-radius;
-    color: on($primary);
+    color: on(cp.$blackbeard-fg-dark);
 
     &:selected:hover { box-shadow: none; }
   }
@@ -1576,10 +1564,10 @@ treeview.view {
     box-shadow: none;
     background-color: $base;
     background-clip: border-box;
-    color: $primary;
+    color: cp.$blackbeard-fg-dark;
   }
 
-  acceleditor > label { background-color: $primary; } // see tests/testaccel to test
+  acceleditor > label { background-color: cp.$blackbeard-fg-dark; } // see tests/testaccel to test
 }
 
 
@@ -1636,7 +1624,7 @@ menu,
     border: 1px solid $solid-border;
     box-shadow: inset 0 1px highlight($surface);
   } @else {
-    border: 2px solid $primary;
+    border: 2px solid cp.$blackbeard-fg-dark;
   }
 
   .csd & { border: none; }
@@ -1653,12 +1641,12 @@ menu,
 
     &:hover {
       transition: none;
-      background-color: $primary;
-      color: on($primary);
+      background-color: cp.$blackbeard-fg-dark;
+      color: on(cp.$blackbeard-fg-dark);
 
-      accelerator { color: on($primary, secondary); }
+      accelerator { color: on(cp.$blackbeard-fg-dark, secondary); }
 
-      &:disabled accelerator { color: on($primary, secondary-disabled); }
+      &:disabled accelerator { color: on(cp.$blackbeard-fg-dark, secondary-disabled); }
     }
 
     &:disabled { color: $text-disabled; }
@@ -1747,7 +1735,7 @@ popover.background {
       box-shadow: $shadow-z4;
       &:backdrop { box-shadow: $shadow-z2; }
     } @else {
-      border: 2px solid $primary;
+      border: 2px solid cp.$blackbeard-fg-dark;
       box-shadow: none;
     }
   }
@@ -1798,7 +1786,7 @@ popover.background {
     padding: 0 8px;
     border-radius: $corner-radius;
 
-    // &:checked { color: $primary; }
+    // &:checked { color: cp.$blackbeard-fg-dark; }
   }
 
   separator { margin: 4px 0; }
@@ -2151,8 +2139,8 @@ switch {
   font-size: 0;
 
   &:checked {
-    background-color: $primary;
-    border-color: $primary;
+    background-color: cp.$blackbeard-fg-dark;
+    border-color: cp.$blackbeard-fg-dark;
   }
 
   &:disabled { opacity: 0.5; }
@@ -2240,7 +2228,7 @@ radio {
   @extend %circular-button;
 
   &:checked, &:indeterminate {
-    color: $primary;
+    color: cp.$blackbeard-fg-dark;
 
     &:disabled { color: $text-secondary-disabled; }
   }
@@ -2371,7 +2359,7 @@ treeview.view radio {
 
   &:disabled { color: $text-secondary-disabled; }
 
-  &:checked, &:indeterminate { color: $primary; }
+  &:checked, &:indeterminate { color: cp.$blackbeard-fg-dark; }
 
   &:checked:disabled, &:indeterminate:disabled { color: $text-secondary-disabled; }
 
@@ -2450,10 +2438,10 @@ scale {
   // the colored part of the backing bit
   highlight {
     transition: background-image $duration $ease-out;
-    background-image: image($primary);
+    background-image: image(cp.$blackbeard-fg-dark);
 
     &:disabled {
-      background-color: $background;
+      background-color: cp.$blackbeard-bg-dark;
       background-image: image($text-secondary-disabled);
     }
   }
@@ -2470,16 +2458,16 @@ scale {
   slider {
     transition: all $duration $ease-out;
     border-radius: $circular-radius;
-    color: $primary;
+    color: cp.$blackbeard-fg-dark;
     background-color: $base;
-    box-shadow: inset 0 0 0 2px $primary;
+    box-shadow: inset 0 0 0 2px cp.$blackbeard-fg-dark;
 
     &:hover {
-      box-shadow: inset 0 0 0 2px $primary, 0 0 0 8px $divider;
+      box-shadow: inset 0 0 0 2px cp.$blackbeard-fg-dark, 0 0 0 8px $divider;
     }
 
     &:active {
-      box-shadow: inset 0 0 0 4px $primary, 0 0 0 8px $divider;
+      box-shadow: inset 0 0 0 4px cp.$blackbeard-fg-dark, 0 0 0 8px $divider;
     }
 
     &:disabled {
@@ -2653,7 +2641,7 @@ progressbar {
 
   progress {
     border-radius: $corner-radius;
-    background-color: $primary;
+    background-color: cp.$blackbeard-fg-dark;
   }
 
   &.osd { // progressbar.osd used for epiphany page loading progress
@@ -2663,7 +2651,7 @@ progressbar {
 
     trough { background-color: transparent; }
 
-    progress { background-color: $primary; }
+    progress { background-color: cp.$blackbeard-fg-dark; }
   }
 
   trough.empty progress { all: unset; } // makes the progress indicator disappear, when the fraction is 0
@@ -2708,7 +2696,7 @@ levelbar {
     &.low { background-color: $warning; }
 
     &.high,
-    &:not(.empty) { background-color: $primary; }
+    &:not(.empty) { background-color: cp.$blackbeard-fg-dark; }
 
     &.full { background-color: $success; }
 
@@ -2931,7 +2919,7 @@ row {
   button {
     @extend %button-flat;
 
-    &.text-button:not(:disabled) { color: $primary; }
+    &.text-button:not(:disabled) { color: cp.$blackbeard-fg-dark; }
   }
 
   &.frame,
@@ -3044,7 +3032,7 @@ messagedialog { // Message Dialog styling
 
         &:not(:last-child) { margin-right: $space-size; }
 
-        &:not(:disabled) { color: $primary; }
+        &:not(:disabled) { color: cp.$blackbeard-fg-dark; }
 
         &.suggested-action:not(:disabled) { color: $suggested; }
 
@@ -3064,7 +3052,7 @@ filechooser {
 
   #pathbarbox {
     border-bottom: 1px solid $divider;
-    background-color: $background;
+    background-color: cp.$blackbeard-bg-dark;
 
     > stack > box > button { // The new folder button
       @extend %button-flat;
@@ -3167,12 +3155,12 @@ stacksidebar.sidebar {
     border-radius: $corner-radius;
 
     &:selected {
-      background-color: $primary;
-      color: on($primary);
+      background-color: cp.$blackbeard-fg-dark;
+      color: on(cp.$blackbeard-fg-dark);
       font-weight: 500;
 
       label, image {
-        color: on($primary);
+        color: on(cp.$blackbeard-fg-dark);
       }
     }
 
@@ -3225,10 +3213,10 @@ placessidebar.sidebar {
     > revealer { padding: 0 8px 0 16px; }
 
     &:selected {
-      background-color: $primary;
+      background-color: cp.$blackbeard-fg-dark;
       font-weight: 500;
 
-      &, image.sidebar-icon, button.sidebar-button { color: on($primary); }
+      &, image.sidebar-icon, button.sidebar-button { color: on(cp.$blackbeard-fg-dark); }
     }
 
     &:disabled { color: $text-disabled; }
@@ -3253,9 +3241,9 @@ placessidebar.sidebar {
     &.sidebar-placeholder-row { background-color: $overlay-hover; }
 
     &.sidebar-new-bookmark-row {
-      color: $primary;
+      color: cp.$blackbeard-fg-dark;
 
-      image.sidebar-icon { color: $primary; }
+      image.sidebar-icon { color: cp.$blackbeard-fg-dark; }
     }
 
     &:drop(active) {
@@ -3299,7 +3287,7 @@ paned {
     &.wide {
       min-width: 6px;
       min-height: 6px;
-      background-color: $background;
+      background-color: cp.$blackbeard-bg-dark;
       background-image: image($divider), image($divider);
       background-size: 1px 1px, 1px 1px;
     }
@@ -3358,7 +3346,7 @@ infobar {
       background-color: $base;
 
       button {
-        &, &.text-button:not(:disabled) { color: $primary; }
+        &, &.text-button:not(:disabled) { color: cp.$blackbeard-fg-dark; }
       }
     }
   }
@@ -3367,18 +3355,18 @@ infobar {
   &.question {
     & > revealer > box,
     &:backdrop > revealer > box {
-      background-color: $primary;
-      color: on($primary);
+      background-color: cp.$blackbeard-fg-dark;
+      color: on(cp.$blackbeard-fg-dark);
 
       button {
-        &, &:hover, &:focus, &:active, &:checked, &.text-button:not(:disabled) { color: on($primary); }
+        &, &:hover, &:focus, &:active, &:checked, &.text-button:not(:disabled) { color: on(cp.$blackbeard-fg-dark); }
       }
 
-      *:link { color: on($primary); }
+      *:link { color: on(cp.$blackbeard-fg-dark); }
     }
 
     &:hover > revealer > box {
-      background-color: if($variant == 'light', lighten($primary, 5%), darken($primary, 5%));
+      background-color: if($variant == 'light', lighten(cp.$blackbeard-fg-dark, 5%), darken(cp.$blackbeard-fg-dark, 5%));
     }
   }
 
@@ -3514,7 +3502,7 @@ colorswatch {
   overlay {
     transition: $transition-shadow;
 
-    &:hover { box-shadow: 0 0 0 2px $primary; }
+    &:hover { box-shadow: 0 0 0 2px cp.$blackbeard-fg-dark; }
 
     // &:drop(active) { }
   }
@@ -3564,7 +3552,7 @@ colorchooser .popover.osd {
  ********/
 // content view (grid/list)
 .content-view {
-  background-color: $background;
+  background-color: cp.$blackbeard-bg-dark;
 
   // &:hover { -gtk-icon-effect: highlight; }
 
@@ -3593,7 +3581,7 @@ decoration {
     border-radius: $window-radius;
   } @else {
     border-radius: $window-radius + 2px;
-    border: 2px solid $primary;
+    border: 2px solid cp.$blackbeard-fg-dark;
     background-clip: border-box;
   }
 
@@ -3611,7 +3599,7 @@ decoration {
     box-shadow: $shadow-z4, 0 0 50px transparent;
 
     @if $rimless == 'false' {
-      border: 2px solid $primary;
+      border: 2px solid cp.$blackbeard-fg-dark;
       background-clip: border-box;
     }
   }
@@ -3633,7 +3621,7 @@ decoration {
     @if $rimless == 'true' {
       box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
     } @else {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 0 0 2px $primary;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16), 0 0 0 2px cp.$blackbeard-fg-dark;
       border: none;
       border-radius: $window-radius $window-radius 0 0;
     }
@@ -3646,7 +3634,7 @@ decoration {
       box-shadow: $shadow-z4;
     } @else {
       border-radius: $menu-radius + 2px;
-      border: 2px solid $primary;
+      border: 2px solid cp.$blackbeard-fg-dark;
       background-clip: border-box;
     }
   }
@@ -3671,7 +3659,7 @@ decoration {
     @if $rimless == 'true' {
       border: 1px solid $solid-border;
     } @else {
-      border: 2px solid $primary;
+      border: 2px solid cp.$blackbeard-fg-dark;
     }
 
     &:backdrop { background-color: $titlebar-backdrop; }
@@ -3707,7 +3695,7 @@ button.titlebutton:not(.suggested-action):not(.destructive-action) {
  **********************/
 // touch selection handlebars for the Popover.osd above
 cursor-handle {
-  color: $primary;
+  color: cp.$blackbeard-fg-dark;
   -gtk-icon-source: -gtk-recolor(url("assets/scalable/cursor-handle-symbolic.svg"));
 
   &.top:dir(ltr), &.bottom:dir(rtl) {
@@ -3744,7 +3732,7 @@ cursor-handle {
 }
 
 :not(decoration):not(window):drop(active) { // FIXME needs to be done widget by widget, this wildcard should really die
-  caret-color: $primary;
+  caret-color: cp.$blackbeard-fg-dark;
 }
 
 stackswitcher {
@@ -3758,7 +3746,7 @@ stackswitcher {
     padding: 2px;
     margin: $space-size 0;
     background-color: transparent;
-    border: 2px solid $primary;
+    border: 2px solid cp.$blackbeard-fg-dark;
   }
 
   &.linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action) {
@@ -3776,13 +3764,13 @@ stackswitcher {
     &:focus:not(:hover) { box-shadow: inset 0 0 0 2px $overlay-focus; }
 
     &:active {
-      box-shadow: inset 0 0 0 9999px gtkalpha($primary, 0.08);
-      background-image: radial-gradient(circle, gtkalpha($primary, 0.08) 10%, transparent 0%);
+      box-shadow: inset 0 0 0 9999px gtkalpha(cp.$blackbeard-fg-dark, 0.08);
+      background-image: radial-gradient(circle, gtkalpha(cp.$blackbeard-fg-dark, 0.08) 10%, transparent 0%);
     }
 
     &:checked {
-      background-color: $primary;
-      color: on($primary);
+      background-color: cp.$blackbeard-fg-dark;
+      color: on(cp.$blackbeard-fg-dark);
     }
   }
 
@@ -3833,7 +3821,7 @@ button.emoji-section {
 
   &:checked {
     // background-color: transparent;
-    color: $primary;
+    color: cp.$blackbeard-fg-dark;
   }
 
   &:not(:last-child) { margin-right: 0; }

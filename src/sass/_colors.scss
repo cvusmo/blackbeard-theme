@@ -2,45 +2,44 @@
 @use 'sass:color';
 @use 'sass:string';
 @use 'sass:math';
-@use '_color-palette';
-@use '_variables' as v;
+@use '_color-palette' as cp;
+@use '_tweaks' as t;         
+@use '_variables' as v;      
 
-// Variant and topbar settings
-$dark: v.$dark !default;    // Default to dark theme from _variables
-$light: v.$light !default;  // Present but unused for now
-$topbar: 'dark';            // Default topbar style
-$panel_opacity: v.$panel_opacity !default; // Default opacity from _variables
+// Theme settings
+$dark: v.$dark !default;  
+$light: v.$light !default;  
+$topbar: 'dark';            
+$panel_opacity: t.$panel_opacity !default; 
 
-// Core Blackbeard Colors (dynamic based on $dark)
-$theme_bg: if($dark, $blackbeard-bg-dark, $blackbeard-bg-light);
-$theme_fg: if($dark, $blackbeard-fg-dark, $blackbeard-fg-light);
-$theme_cursor: if($dark, $blackbeard-red-dark, $blackbeard-red-light); // Using red as cursor
-$theme_selection_bg: $blackbeard-selection-bg;
-$theme_selection_fg: if($dark, $blackbeard-selection-fg-dark, $blackbeard-selection-fg-light);
-$theme_black: if($dark, $blackbeard-black-dark, $blackbeard-black-light);
-$theme_red: if($dark, $blackbeard-red-dark, $blackbeard-red-light);
-$theme_green: if($dark, $blackbeard-green-dark, $blackbeard-green-light);
-$theme_yellow: if($dark, $blackbeard-yellow-dark, $blackbeard-yellow-light);
-$theme_blue: if($dark, $blackbeard-blue-dark, $blackbeard-blue-light);
-$theme_magenta: if($dark, $blackbeard-magenta-dark, $blackbeard-magenta-light);
-$theme_cyan: if($dark, $blackbeard-cyan-dark, $blackbeard-cyan-light);
-$theme_white: if($dark, $blackbeard-white-dark, $blackbeard-white-light);
-$theme_brblack: if($dark, $blackbeard-brblack-dark, $blackbeard-brblack-light);
-$theme_brred: if($dark, $blackbeard-brred-dark, $blackbeard-brred-light);
-$theme_brgreen: if($dark, $blackbeard-brgreen-dark, $blackbeard-brgreen-light);
-$theme_bryellow: if($dark, $blackbeard-bryellow-dark, $blackbeard-bryellow-light);
-$theme_brblue: if($dark, $blackbeard-brblue-dark, $blackbeard-brblue-light);
-$theme_brmagenta: if($dark, $blackbeard-brmagenta-dark, $blackbeard-brmagenta-light);
-$theme_brcyan: if($dark, $blackbeard-brcyan-dark, $blackbeard-brcyan-light);
-$theme_brwhite: if($dark, $blackbeard-brwhite-dark, $blackbeard-brwhite-light);
-
-// Gruvbox-inspired additions
-$theme_orange: if($dark, $gruvbox-orange-dark, $gruvbox-orange-light);
-$theme_purple: if($dark, $blackbeard-magenta-dark, $blackbeard-magenta-light); // Reused magenta
+// Core Blackbeard Colors
+$theme_bg: if($dark, cp.$blackbeard-bg-dark, cp.$blackbeard-bg-light);
+$theme_fg: if($dark, cp.$blackbeard-fg-dark, cp.$blackbeard-fg-light);
+$theme_cursor: if($dark, cp.$blackbeard-orange-dark, cp.$blackbeard-orange-light);
+$theme_selection_bg: cp.$blackbeard-selection-bg;
+$theme_selection_fg: if($dark, cp.$blackbeard-selection-fg-dark, cp.$blackbeard-selection-fg-light);
+$theme_black: if($dark, cp.$blackbeard-black-dark, cp.$blackbeard-black-light);
+$theme_red: if($dark, cp.$blackbeard-red-dark, cp.$blackbeard-red-light);
+$theme_green: if($dark, cp.$blackbeard-green-dark, cp.$blackbeard-green-light);
+$theme_yellow: if($dark, cp.$blackbeard-yellow-dark, cp.$blackbeard-yellow-light);
+$theme_blue: if($dark, cp.$blackbeard-blue-dark, cp.$blackbeard-blue-light);
+$theme_orange: if($dark, cp.$gruvbox-orange-dark, cp.$gruvbox-orange-light);
+$theme_purple: if($dark, cp.$blackbeard-purple-dark, cp.$blackbeard-purple-light);
+$theme_magenta: if($dark, cp.$blackbeard-magenta-dark, cp.$blackbeard-magenta-light);
+$theme_cyan: if($dark, cp.$blackbeard-cyan-dark, cp.$blackbeard-cyan-light);
+$theme_white: if($dark, cp.$blackbeard-white-dark, cp.$blackbeard-white-light);
+$theme_brblack: if($dark, cp.$blackbeard-brblack-dark, cp.$blackbeard-brblack-light);
+$theme_brred: if($dark, cp.$blackbeard-brred-dark, cp.$blackbeard-brred-light);
+$theme_brgreen: if($dark, cp.$blackbeard-brgreen-dark, cp.$blackbeard-brgreen-light);
+$theme_bryellow: if($dark, cp.$blackbeard-bryellow-dark, cp.$blackbeard-bryellow-light);
+$theme_brblue: if($dark, cp.$blackbeard-brblue-dark, cp.$blackbeard-brblue-light);
+$theme_brmagenta: if($dark, cp.$blackbeard-brmagenta-dark, cp.$blackbeard-brmagenta-light);
+$theme_brcyan: if($dark, cp.$blackbeard-brcyan-dark, cp.$blackbeard-brcyan-light);
+$theme_brwhite: if($dark, cp.$blackbeard-brwhite-dark, cp.$blackbeard-brwhite-light);
 
 // Utility Functions
 @function gtkalpha($c, $a) {
-  @return unquote("alpha(#{$c}, #{$a})");
+  @return string.unquote("alpha(#{$c}, #{$a})");
 }
 
 @function on($color, $state: 'primary') {
@@ -94,17 +93,17 @@ $theme_purple: if($dark, $blackbeard-magenta-dark, $blackbeard-magenta-light); /
 // Background Levels
 @function background($type) {
   @if not $dark {
-    @if ($type == 'a') { @return $blackbeard-bg-light; }
+    @if ($type == 'a') { @return cp.$blackbeard-bg-light; }
     @if ($type == 'b') { @return #E8D9C0; }
     @if ($type == 'c') { @return #D9CBB0; }
     @if ($type == 'd') { @return #C9B999; }
   } @else {
-    @if ($type == 'a') { @return $blackbeard-bg-dark; }
+    @if ($type == 'a') { @return cp.$blackbeard-bg-dark; }
     @if ($type == 'b') { @return #2A2726; }
     @if ($type == 'c') { @return #3A3735; }
-    @if ($type == 'd') { @return $blackbeard-black-dark; }
+    @if ($type == 'd') { @return cp.$blackbeard-black-dark; }
   }
-  @return $theme_bg; // Default fallback
+  @return $theme_bg;
 }
 
 // Overlay States
@@ -129,13 +128,13 @@ $theme_purple: if($dark, $blackbeard-magenta-dark, $blackbeard-magenta-light); /
 }
 
 // Theme-Specific Colors
-$primary: $theme_selection_bg; // Purple as primary accent
+$primary: $theme_selection_bg;
 $background: $theme_bg;
 $surface: background('b');
 $base: $theme_bg;
 $base-alt: background('c');
 $sidebg: background('d');
-$login-background: background('d'); // For gnome-shell
+$login-background: background('d');
 $tooltip: if($dark, rgba($theme_black, 0.9), rgba($theme_brblack, 0.9));
 $system: color.adjust(background('c'), $lightness: -3%);
 $osd: background('c');
@@ -153,19 +152,19 @@ $entry: solid_on($theme_bg, 'fill');
 
 // Misc Colors
 $link: $theme_blue;
-$link-visited: if($dark, $theme_purple, $theme_magenta);
-$warning: if($dark, $yellow-700, $yellow-a700);
-$error: if($dark, $red-600, $red-500);
-$success: if($dark, $green-500, $green-400);
-$suggested: $theme_cyan; // Using cyan as suggested action
-$destructive: $theme_red;
+$link-visited: if($dark, cp.$purple-700, cp.$purple-400); 
+$warning: if($dark, cp.$yellow-700, cp.$yellow-a700);      
+$error: if($dark, cp.$red-600, cp.$red-500);              
+$success: if($dark, cp.$green-500, cp.$green-400);         
+$suggested: $theme_orange;
+$destructive: $theme_red; 
 
 $frame: if($dark, rgba(black, 0.12), rgba(white, 0.25));
 $side-frame: if($dark, rgba(black, 0.25), rgba(white, 0.12));
 $border: if($dark, rgba(black, 0.12), rgba(white, 0.12));
 $side-border: if($dark, rgba(black, 0.1), rgba(white, 0.1));
 $solid-border: if($dark, color.adjust($theme_bg, $lightness: -12%), color.adjust($theme_bg, $lightness: 12%));
-$border-alt: rgba(black, 0.16); // Darker border for Chrome/Firefox
+$border-alt: rgba(black, 0.16);
 
 // Overlay State Colors
 $overlay-normal: gtkalpha(currentColor, 0.05);
@@ -207,3 +206,4 @@ $panel-fill: on($panel, 'fill');
 
 // Placeholder text workaround for GTK3
 $placeholder_text_color: if($dark, color.mix(black, $base, 60%), color.mix(white, $base, 70%));
+
