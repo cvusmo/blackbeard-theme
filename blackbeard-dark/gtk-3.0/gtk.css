@@ -1,12 +1,12 @@
 /* ~/blackbeard-colorscheme/blackbeard-dark/gtk-3.0/gtk.css */
 /* move to ~/.themes/blackbeard-dark/gtk-3.0/gtk.css */
 
-/* Define Colors */
-@define-color theme_bg            #1C1B1A;
-@define-color theme_fg            #F4E3C1;
+/* Define Colors (Aligned with GIMP Variables) */
+@define-color theme_bg            #1C1B1A; /* Matches @bg-color */
+@define-color theme_fg            #F4E3C1; /* Matches @fg-color */
 @define-color theme_cursor        #F27835;
-@define-color theme_selection_bg  #F4A259;
-@define-color theme_selection_fg  #1C1B1A;
+@define-color theme_selection_bg  #9280E8; /* Purple for hovers/borders */
+@define-color theme_selection_fg  #F4E3C1; /* White for contrast */
 @define-color theme_black         #454240;
 @define-color theme_red           #D13438;
 @define-color theme_green         #73A857;
@@ -24,19 +24,42 @@
 @define-color theme_brcyan        #6FE2CA;
 @define-color theme_brwhite       #F6E8CD;
 
-/* Global Settings with Transitions */
+/* GIMP-Specific Properties (Baseline for GTK 3.0) */
 * {
+    -gtk-icon-style:                   symbolic;
+    -GimpDockWindow-default-height:    300;
+    -GimpMenuDock-minimal-width:       200;
+    -GimpDockWindow-menu-preview-size: button;
+    -GimpToolPalette-tool-icon-size:   small-toolbar;
+    -GimpToolPalette-button-relief:    none;
+    -GimpDock-tool-icon-size:          small-toolbar;
+    -GimpDockbook-tab-icon-size:       button;
+    -GimpColorNotebook-tab-icon-size:  button;
+    -GimpDockable-content-border:      1;
+    -GimpEditor-content-spacing:       1;
+    -GimpEditor-button-spacing:        1;
+    -GimpEditor-button-icon-size:      menu;
+    -GimpDataEditor-minimal-height:    60;
+    -GtkDialog-content-area-border:    0;
+    -GtkDialog-button-spacing:         1;
+    -GtkDialog-action-area-border:     8;
+    -GimpUnitComboBox-appears-as-list: 0;
+
     background-color: @theme_bg;
     color: @theme_fg;
-    font-family: sans-serif;
+    font-family: 'Hurmit Nerd Font';
+    font-size: 18px;
     transition: all 0.2s ease-in-out;
+    outline: none; /* Remove default focus outline */
+    outline-offset: 0;
+    border: none; /* Ensure no default borders */
 }
 
 /* Windows & Dialogs */
 window, dialog, .background {
     background-color: @theme_bg;
     color: @theme_fg;
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 window:backdrop, dialog:backdrop {
@@ -50,35 +73,112 @@ headerbar {
     background-color: @theme_black;
     color: @theme_fg;
     border-bottom: 1px solid @theme_brblack;
-    border-radius: 4px 4px 0 0;
+    border-radius: 10px 10px 0 0;
+    padding: 5px;
+    min-height: 36px;
 }
 headerbar:backdrop {
     background-color: @theme_brblack;
     color: @theme_brwhite;
 }
 
-/* Buttons */
+/* Base Widget and Button Styling */
+GtkWidget {
+    border: none; /* Ensure no default borders */
+}
+GtkButton {
+    background-color: transparent; /* Transparent by default */
+    border: none; /* Override base button border */
+    box-shadow: none; /* Subtle depth, no outline */
+    color: @theme_fg; /* Ensure text visibility */
+}
+GtkButton:hover, GtkButton:prelight { /* Target prelight state */
+    background-color: @theme_selection_bg; /* Purple on hover */
+    border: 2px solid @theme_selection_fg; /* White border on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Enhance hover feedback */
+    color: @theme_selection_fg; /* White text on hover */
+}
+GtkButton:active {
+    background-color: @theme_cyan;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: @theme_fg;
+}
+GtkButton:disabled {
+    background-color: @theme_brblack;
+    color: @theme_brwhite;
+    opacity: 0.6;
+}
+GtkButton:focus, GtkButton:focus-visible {
+    outline: none;
+    box-shadow: none; /* Remove focus ring */
+}
+
+/* General Buttons */
 button {
     background-image: none;
-    background-color: @theme_blue;
-    border: 1px solid @theme_brblue;
+    background-color: transparent; /* Transparent by default */
     color: @theme_fg;
-    padding: 4px 8px;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 2px 4px;
+    border-radius: 4px;
+    border: none;
 }
-button:hover {
-    background-color: @theme_brblue;
+button:hover, button:prelight {
+    background-color: @theme_selection_bg; /* Purple on hover */
+    border: 2px solid @theme_selection_fg; /* White border on hover */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: @theme_selection_fg; /* White text on hover */
 }
 button:active {
     background-color: @theme_cyan;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: @theme_fg;
 }
 button:disabled {
     background-color: @theme_brblack;
     color: @theme_brwhite;
     opacity: 0.6;
+}
+button:focus, button:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* GIMP-Specific Button Overrides */
+GimpToolBox button,
+GimpToolBox toolbutton > button,
+GtkDockColumns button,
+GtkDockColumns toolbutton > button {
+    background-color: transparent; /* Transparent by default */
+    border: none;
+    box-shadow: none; /* No outline */
+    padding: 4px;
+    border-radius: 4px;
+    color: @theme_fg;
+}
+GimpToolBox button:hover,
+GimpToolBox toolbutton > button:hover,
+GtkDockColumns button:hover,
+GtkDockColumns toolbutton > button:hover,
+GimpToolBox button:prelight,
+GimpToolBox toolbutton > button:prelight,
+GtkDockColumns button:prelight,
+GtkDockColumns toolbutton > button:prelight {
+    background-color: @theme_selection_bg; /* Purple on hover */
+    border: 2px solid @theme_selection_fg; /* White border on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: @theme_selection_fg; /* White text on hover */
+}
+GimpToolBox button:active,
+GimpToolBox toolbutton > button:active,
+GtkDockColumns button:active,
+GtkDockColumns toolbutton > button:active {
+    background-color: @theme_cyan;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    color: @theme_fg;
+}
+toolbutton > button:checked {
+    background-color: @theme_cyan;
+    border: none;
 }
 
 /* Entries and TextViews */
@@ -87,7 +187,7 @@ entry, textview, .entry, .textview {
     color: @theme_fg;
     border: 1px solid @theme_black;
     padding: 2px 4px;
-    border-radius: 4px;
+    border-radius: 3px;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 entry:focus, textview:focus {
@@ -107,16 +207,21 @@ cursor {
 
 /* Selection */
 selection, ::selection {
-    background-color: @theme_selection_bg;
-    color: @theme_selection_fg;
+    background-color: @theme_selection_bg; /* Purple for selection */
+    color: @theme_selection_fg; /* White for selection text */
 }
 
 /* Scrollbars */
+scrollbar {
+    background-color: @theme_bg;
+    border-color: @theme_black;
+}
 scrollbar slider {
     background-color: @theme_brblack;
-    border-radius: 4px;
-    min-width: 8px;
-    min-height: 8px;
+    border: 2px solid @theme_black;
+    border-radius: 10px;
+    min-width: 9px;
+    min-height: 9px;
     transition: all 0.2s;
 }
 scrollbar slider:hover {
@@ -135,12 +240,14 @@ menu, menuitem {
     background-color: @theme_bg;
     color: @theme_fg;
     border: 1px solid @theme_black;
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 5px;
 }
 menuitem:hover {
-    background-color: @theme_black;
-    color: @theme_fg;
+    background-color: @theme_selection_bg; /* Purple for hover */
+    color: @theme_selection_fg; /* White text for hover */
+    border: 2px solid @theme_selection_fg; /* White border for hover */
 }
 menuitem:disabled {
     color: @theme_brwhite;
@@ -151,9 +258,9 @@ menuitem:disabled {
 tooltip {
     background-color: @theme_black;
     color: @theme_fg;
-    border: 1px solid @theme_brblack;
-    padding: 4px;
-    border-radius: 4px;
+    border: 1px solid @theme_fg;
+    padding: 5px 10px;
+    border-radius: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -162,11 +269,11 @@ treeview, list {
     background-color: @theme_bg;
     color: @theme_fg;
     border: 1px solid @theme_brblack;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 treeview:selected, list:selected {
-    background-color: @theme_selection_bg;
-    color: @theme_selection_fg;
+    background-color: @theme_selection_bg; /* Purple for selection */
+    color: @theme_selection_fg; /* White for selection text */
 }
 treeview:disabled, list:disabled {
     color: @theme_brwhite;
@@ -177,9 +284,9 @@ treeview:disabled, list:disabled {
 notebook tab {
     background-color: @theme_black;
     color: @theme_fg;
-    padding: 4px 8px;
+    padding: 1px;
     border: 1px solid @theme_brblack;
-    border-radius: 4px 4px 0 0;
+    border-radius: 10px 10px 0 0;
     transition: all 0.2s;
 }
 notebook tab:checked {
@@ -198,20 +305,20 @@ statusbar {
     color: @theme_fg;
     border-top: 1px solid @theme_brblack;
     padding: 2px;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 10px 10px;
 }
 
 /* Progress Bars */
 progressbar {
     background-color: @theme_brblack;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 progressbar trough {
     background-color: @theme_bg;
 }
 progressbar progress {
     background-color: @theme_green;
-    border-radius: 4px;
+    border-radius: 10px;
     transition: all 0.3s;
 }
 progressbar:disabled {
@@ -222,20 +329,21 @@ progressbar:disabled {
 toolbar {
     background-color: @theme_bg;
     color: @theme_fg;
-    padding: 4px;
+    padding: 2px;
     border-bottom: 1px solid @theme_brblack;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 /* Scales (Sliders) */
 scale trough {
     background-color: @theme_brblack;
-    border-radius: 4px;
+    border: 1px solid @theme_black;
+    border-radius: 10px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 scale highlight {
     background-color: @theme_blue;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 scale slider {
     background-color: @theme_brblue;
@@ -273,6 +381,10 @@ spinbutton:disabled {
     color: @theme_brwhite;
     opacity: 0.6;
 }
+spinbutton button {
+    border-radius: 4px;
+    padding: 1px;
+}
 
 /* Combobox */
 combobox {
@@ -280,7 +392,7 @@ combobox {
     color: @theme_fg;
     border: 1px solid @theme_black;
     border-radius: 4px;
-    padding: 2px;
+    padding: 2px 4px;
 }
 combobox:drop(active) {
     border-color: @theme_cursor;
@@ -289,6 +401,35 @@ combobox:disabled {
     background-color: @theme_brblack;
     color: @theme_brwhite;
     opacity: 0.6;
+}
+combobox button {
+    border-radius: 4px;
+}
+
+/* GIMP-Specific Overrides */
+GimpToolDialog {
+    -GtkDialog-action-area-border: 1;
+}
+GimpDock notebook tab {
+    padding: 0;
+}
+GimpDock entry,
+GimpDock spinbutton {
+    min-height: 0;
+    padding: 2px;
+}
+GimpSpinScale entry {
+    min-height: 16px;
+    border-radius: 5px 0 0 5px;
+    border-right-width: 0;
+}
+GimpSpinScale button {
+    border-radius: 0 2px 2px 0;
+    padding: 1px;
+}
+toolbutton > button {
+    border-radius: 4px;
+    padding: 4px;
 }
 
 /* Improve Contrast with Text Shadow */

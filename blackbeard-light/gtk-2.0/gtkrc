@@ -4,8 +4,8 @@
 # bg            #F4E3C1
 # fg            #1C1B1A
 # cursor        #D13438
-# selection_bg  #F4A259
-# selection_fg  #1C1B1A
+# selection_bg  #9280E8   
+# selection_fg  #F4E3C1    
 # black         #3A3735
 # red           #8B1A1E
 # green         #4A7C2A
@@ -29,26 +29,28 @@ style "default"
   bg[NORMAL]      = "#F4E3C1"
   bg[PRELIGHT]    = "#F4E3C1"
   bg[ACTIVE]      = "#3A3735"
-  bg[SELECTED]    = "#F4A259"
+  bg[SELECTED]    = "#9280E8"    # Updated to purple
   bg[INSENSITIVE] = "#514A45"
 
   fg[NORMAL]      = "#1C1B1A"
   fg[PRELIGHT]    = "#1C1B1A"
   fg[ACTIVE]      = "#1C1B1A"
-  fg[SELECTED]    = "#1C1B1A"
+  fg[SELECTED]    = "#F4E3C1"    # Updated to white
   fg[INSENSITIVE] = "#6A5E47"
 
   base[NORMAL]    = "#F4E3C1"
   base[PRELIGHT]  = "#F4E3C1"
-  base[ACTIVE]    = "#F4A259"
-  base[SELECTED]  = "#F4A259"
+  base[ACTIVE]    = "#9280E8"    # Updated to purple
+  base[SELECTED]  = "#9280E8"    # Updated to purple
   base[INSENSITIVE] = "#3A3735"
 
   text[NORMAL]    = "#1C1B1A"
   text[PRELIGHT]  = "#1C1B1A"
   text[ACTIVE]    = "#1C1B1A"
-  text[SELECTED]  = "#1C1B1A"
+  text[SELECTED]  = "#F4E3C1"    # Updated to white
   text[INSENSITIVE] = "#6A5E47"
+
+  font_name = "Noto Sans 12"      # Default to Noto Sans as fallback (adjusted size for readability)
 
   # Engine tweaks (optional, depends on installed theme engine like Clearlooks)
   engine "clearlooks" {
@@ -69,11 +71,13 @@ widget_class "*<GtkWindow>" style "window"
 # Buttons
 style "button"
 {
-  bg[NORMAL]   = "#2A5A75"
-  bg[PRELIGHT] = "#3A6A85"
+  bg[NORMAL]   = "#00000000"    # Transparent by default (RGBA format)
+  bg[PRELIGHT] = "#9280E8"      # Purple on hover
   bg[ACTIVE]   = "#2A5A75"
   bg[INSENSITIVE] = "#514A45"
   fg[NORMAL]   = "#1C1B1A"
+  fg[PRELIGHT] = "#F4E3C1"      # White text on hover
+  fg[ACTIVE]   = "#1C1B1A"
   fg[INSENSITIVE] = "#6A5E47"
   xthickness = 4
   ythickness = 4
@@ -108,8 +112,8 @@ widget_class "*<GtkMenu>" style "menu"
 
 style "menuitem"
 {
-  bg[PRELIGHT] = "#3A3735"
-  fg[PRELIGHT] = "#1C1B1A"
+  bg[PRELIGHT] = "#9280E8"      # Purple on hover
+  fg[PRELIGHT] = "#F4E3C1"      # White text on hover
   bg[INSENSITIVE] = "#3A3735"
   fg[INSENSITIVE] = "#6A5E47"
 }

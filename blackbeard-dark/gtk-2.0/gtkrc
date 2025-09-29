@@ -5,8 +5,8 @@
 # bg            #1C1B1A
 # fg            #F4E3C1
 # cursor        #F27835
-# selection_bg  #F4A259
-# selection_fg  #1C1B1A
+# selection_bg  #9280E8    # Updated to purple for borders/highlights/hovers
+# selection_fg  #F4E3C1    # Updated to white for text contrast
 # black         #454240
 # red           #D13438
 # green         #73A857
@@ -30,26 +30,28 @@ style "default"
   bg[NORMAL]      = "#1C1B1A"
   bg[PRELIGHT]    = "#1C1B1A"
   bg[ACTIVE]      = "#454240"
-  bg[SELECTED]    = "#F4A259"
+  bg[SELECTED]    = "#9280E8"    # Updated to purple
   bg[INSENSITIVE] = "#614A4D"
 
   fg[NORMAL]      = "#F4E3C1"
   fg[PRELIGHT]    = "#F4E3C1"
   fg[ACTIVE]      = "#F4E3C1"
-  fg[SELECTED]    = "#1C1B1A"
+  fg[SELECTED]    = "#F4E3C1"    # Updated to white
   fg[INSENSITIVE] = "#AA9E87"
 
   base[NORMAL]    = "#1C1B1A"
   base[PRELIGHT]  = "#1C1B1A"
-  base[ACTIVE]    = "#F4A259"
-  base[SELECTED]  = "#F4A259"
+  base[ACTIVE]    = "#9280E8"    # Updated to purple
+  base[SELECTED]  = "#9280E8"    # Updated to purple
   base[INSENSITIVE] = "#454240"
 
   text[NORMAL]    = "#F4E3C1"
   text[PRELIGHT]  = "#F4E3C1"
-  text[ACTIVE]    = "#1C1B1A"
-  text[SELECTED]  = "#1C1B1A"
+  text[ACTIVE]    = "#F4E3C1"
+  text[SELECTED]  = "#F4E3C1"    # Updated to white
   text[INSENSITIVE] = "#AA9E87"
+
+  font_name = "Noto Sans 18"      # Default to Noto Sans as fallback
 
   # Engine tweaks (optional, depends on installed theme engine like Clearlooks)
   engine "clearlooks" {
@@ -70,11 +72,13 @@ widget_class "*<GtkWindow>" style "window"
 # Buttons
 style "button"
 {
-  bg[NORMAL]   = "#5A8CA5"
-  bg[PRELIGHT] = "#73B3D8"
+  bg[NORMAL]   = "#00000000"    # Transparent by default (RGBA format)
+  bg[PRELIGHT] = "#9280E8"      # Purple on hover
   bg[ACTIVE]   = "#46B9A0"
   bg[INSENSITIVE] = "#614A4D"
   fg[NORMAL]   = "#F4E3C1"
+  fg[PRELIGHT] = "#F4E3C1"      # White text on hover
+  fg[ACTIVE]   = "#F4E3C1"
   fg[INSENSITIVE] = "#AA9E87"
   xthickness = 4
   ythickness = 4
@@ -109,8 +113,8 @@ widget_class "*<GtkMenu>" style "menu"
 
 style "menuitem"
 {
-  bg[PRELIGHT] = "#454240"
-  fg[PRELIGHT] = "#F4E3C1"
+  bg[PRELIGHT] = "#9280E8"      # Purple on hover
+  fg[PRELIGHT] = "#F4E3C1"      # White text on hover
   bg[INSENSITIVE] = "#614A4D"
   fg[INSENSITIVE] = "#AA9E87"
 }
