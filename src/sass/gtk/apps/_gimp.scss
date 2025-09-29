@@ -1,33 +1,40 @@
 // sass/gtk/apps/_gimp.scss
-@use '../_common-3.0' as gtk;
+@import '../../gtk';
 
+/* GIMP Toolbox */
 GimpToolbox {
-    background-color: $theme_bg;
-    color: $theme_fg;
-    border: 1px solid $border;
-    border-radius: $corner-radius;
+    background-color: @theme_bg;
+    color: @theme_fg;
+    border: 1px solid @theme_black;
+    border-radius: 10px;
 }
 
+/* Spin Scale */
 GimpSpinScale {
-    background-color: $base-alt;
-    border: 1px solid $border;
-    border-radius: $corner-radius;
+    background-color: @theme_brblack;
+    border: 1px solid @theme_black;
+    border-radius: 10px;
 }
 
+/* Toolbox Buttons */
 GimpToolbox button {
     background-color: transparent;
-    border: 1px solid $border;
-    border-radius: $corner-radius;
-    padding: $space-size;
+    border: 1px solid @theme_black;
+    border-radius: 4px;
+    padding: 4px;
+    color: @theme_fg;
 }
 
 GimpToolbox button:hover {
-    background-color: $theme_selection_bg;
-    color: $theme_selection_fg;
+    background-color: @theme_selection_bg;
+    color: @theme_selection_fg;
+    border: 2px solid @theme_selection_fg;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Docks */
 GimpDock {
-    background-color: $sidebg;
-    border: 1px solid $side-border;
-    border-radius: $corner-radius;
+    background-color: @theme_black;
+    border: 1px solid @theme_brblack;
+    border-radius: 10px;
 }
