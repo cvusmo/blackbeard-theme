@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Blackbeard Light
+Comment=A light GTK theme for Arch Linux
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Blackbeard-Light
+MetacityTheme=Blackbeard-Light
+IconTheme=Papirus-Light
+CursorTheme=Nordzy-cursors-light
