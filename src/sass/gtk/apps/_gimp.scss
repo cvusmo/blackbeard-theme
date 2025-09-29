@@ -1,0 +1,33 @@
+// sass/gtk/apps/_gimp.scss
+@import '../../gtk';
+
+GimpToolbox {
+    background-color: $theme_bg;
+    color: $theme_fg;
+    border: 1px solid $border;
+    border-radius: $corner-radius;
+}
+
+GimpSpinScale {
+    background-color: $base-alt;
+    border: 1px solid $border;
+    border-radius: $corner-radius;
+}
+
+GimpToolbox button {
+    background-color: transparent;
+    border: 1px solid $border;
+    border-radius: $corner-radius;
+    padding: $space-size;
+}
+
+GimpToolbox button:hover {
+    background-color: $theme_selection_bg;
+    color: $theme_selection_fg;
+}
+
+GimpDock {
+    background-color: $sidebg;
+    border: 1px solid $side-border;
+    border-radius: $corner-radius;
+}

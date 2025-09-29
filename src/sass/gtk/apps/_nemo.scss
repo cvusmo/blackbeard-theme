@@ -1,0 +1,20 @@
+// sass/gtk/apps/_nemo.scss
+@import '../../gtk';
+
+.nemo-window {
+  background-color: $theme_bg;
+  color: $theme_fg;
+  border: 1px solid $border;
+  border-radius: $corner-radius;
+}
+
+.nemo-window .sidebar {
+  background-color: $sidebg;
+  border: 1px solid $side-border;
+  border-radius: $corner-radius;
+}
+
+.nemo-window button:hover {
+  background-color: $theme_selection_bg;
+  color: $theme_selection_fg;
+}

@@ -1,0 +1,40 @@
+// sass/_tweaks.scss
+
+// Transparent opacity (controls overall transparency, 'default' for no change)
+$opacity: 'default';
+
+// Theme primary color 
+$theme: 'selection_bg'; 
+
+// Theme size (compact layout option)
+$compact: 'false'; 
+
+// Theme translucent
+$translucent: 'true';
+
+// Panel translucent opacity
+$panel_opacity: 0.9;
+
+// Darker color (enhances contrast in dark mode)
+$darker: 'false'; 
+
+// Theme color type (custom for Blackbeard palette)
+$color_type: 'custom';
+
+// Windows outline style (rimless for minimal borders)
+$rimless: 'true';
+
+// Windows outline style (sidebar styling)
+$sidebar: 'styled';
+
+// Gnome-Shell version (adjust based on your environment)
+$shell_version: '46'; 
+
+// Gnome-Shell float panel version
+$float: 'false'; 
+
+// Gnome-Shell colorful panel version
+$colorful: 'false'; 
+
+// Default corner radius value
+$default_corner: 10px;
