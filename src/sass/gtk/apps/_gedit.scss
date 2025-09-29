@@ -1,0 +1,20 @@
+// sass/gtk/apps/_gedit.scss
+@import '../../gtk';
+
+.gedit-document-panel {
+  background-color: $theme_bg;
+  color: $theme_fg;
+  border: 1px solid $border;
+  border-radius: $corner-radius;
+}
+
+.gedit-bottom-panel {
+  background-color: $base-alt;
+  border: 1px solid $side-border;
+  border-radius: $corner-radius;
+}
+
+.gedit-bottom-panel button:hover {
+  background-color: $theme_selection_bg;
+  color: $theme_selection_fg;
+}

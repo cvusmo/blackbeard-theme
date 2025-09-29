@@ -1,0 +1,14 @@
+// sass/gtk/apps/_wofi.scss
+@import '../../gtk';
+
+window#wofi {
+  background-color: $theme_bg;
+  color: $theme_fg;
+  border: 1px solid $border;
+  border-radius: $corner-radius;
+}
+
+#wofi button:hover {
+  background-color: $theme_selection_bg;
+  color: $theme_selection_fg;
+}
