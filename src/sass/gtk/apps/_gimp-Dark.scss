@@ -1,12 +1,10 @@
-/* /src/core/gtk-3.0/gtk-Dark.scss */
 $dark: true;
 $light: false;
-$topbar: 'dark';
 
 @use '../../sass/_variables' as v with ($dark: $dark, $light: $light);
 @use '../../sass/_colors' as c with ($dark: $dark, $light: $light);
 @use '../../sass/gtk/_drawing-3.0' as d;
 @use '../../sass/gtk/_common-3.0' as cm;
 @use '../../sass/gtk/_apps-3.0' as a;
-@use "../../apps/gimp" as gimp;
+@use './gimp' as gimp;
 @use '../../sass/gtk/_colors-public' as cp;

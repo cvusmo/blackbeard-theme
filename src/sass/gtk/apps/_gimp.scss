@@ -1,40 +1,185 @@
-// sass/gtk/apps/_gimp.scss
-@import '../../gtk';
+// src/core/apps/gimp.scss
+@use '../../sass/_color-palette' as cp;
+@use '../../sass/_colors' as c;
+@use '../../sass/_variables' as v;
+@use '../../sass/gtk/_drawing-3.0' as d;
+@use '../../sass/gtk/_common-3.0' as cm;
+@use '../../sass/gtk/_apps-3.0' as a;
 
-/* GIMP Toolbox */
+/* Toolbox */
 GimpToolbox {
-    background-color: @theme_bg;
-    color: @theme_fg;
-    border: 1px solid @theme_black;
-    border-radius: 10px;
+  background-color: cp.$blackbeard-bg-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: v.$corner-radius;
 }
 
-/* Spin Scale */
-GimpSpinScale {
-    background-color: @theme_brblack;
-    border: 1px solid @theme_black;
-    border-radius: 10px;
+GimpToolbox button,
+GimpToolBox toolbutton > button {
+  background-color: transparent;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: 4px;
+  padding: 4px;
+  color: cp.$blackbeard-fg-dark;
 }
 
-/* Toolbox Buttons */
-GimpToolbox button {
-    background-color: transparent;
-    border: 1px solid @theme_black;
-    border-radius: 4px;
-    padding: 4px;
-    color: @theme_fg;
+GimpToolbox button:hover,
+GimpToolBox toolbutton > button:hover {
+  background-color: cp.$blackbeard-selection-bg;
+  color: cp.$blackbeard-selection-fg-light;
+  border: 2px solid cp.$blackbeard-selection-fg-light;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-GimpToolbox button:hover {
-    background-color: @theme_selection_bg;
-    color: @theme_selection_fg;
-    border: 2px solid @theme_selection_fg;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+GimpToolbox button:active,
+GimpToolBox toolbutton > button:active {
+  background-color: cp.$blackbeard-cyan-dark;
+  color: cp.$blackbeard-fg-dark;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Docks */
 GimpDock {
-    background-color: @theme_black;
-    border: 1px solid @theme_brblack;
-    border-radius: 10px;
+  background-color: cp.$blackbeard-black-dark;
+  border: 1px solid cp.$blackbeard-brblack-dark;
+  border-radius: v.$corner-radius;
+}
+
+GimpDock notebook tab {
+  background-color: cp.$blackbeard-black-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-brblack-dark;
+  border-radius: v.$corner-radius v.$corner-radius 0 0;
+  padding: 2px 6px;
+}
+
+GimpDock notebook tab:checked {
+  background-color: cp.$blackbeard-cyan-dark;
+  color: cp.$blackbeard-fg-dark;
+  border-bottom: none;
+}
+
+GimpDock notebook tab:disabled {
+  background-color: cp.$blackbeard-brblack-dark;
+  color: cp.$blackbeard-brwhite-dark;
+  opacity: 0.6;
+}
+
+/* Spin Scales */
+GimpSpinScale {
+  background-color: cp.$blackbeard-brblack-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: v.$corner-radius;
+}
+
+GimpSpinScale entry {
+  background-color: cp.$blackbeard-bg-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: v.$corner-radius 0 0 v.$corner-radius;
+  border-right-width: 0;
+  padding: 2px 4px;
+}
+
+GimpSpinScale button {
+  background-color: cp.$blackbeard-brblack-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: 0 v.$corner-radius v.$corner-radius 0;
+  padding: 2px;
+}
+
+/* Entries */
+GimpDock entry,
+GimpDock spinbutton {
+  background-color: cp.$blackbeard-bg-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: v.$corner-radius;
+  padding: 2px 4px;
+}
+
+GimpDock entry:focus,
+GimpDock spinbutton:focus {
+  border-color: cp.$blackbeard-red-dark; // Fallback for @theme_cursor
+  box-shadow: 0 0 4px cp.$blackbeard-red-dark;
+}
+
+/* Menus */
+GimpDock menu,
+GimpDock menuitem {
+  background-color: cp.$blackbeard-bg-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+GimpDock menuitem:hover {
+  background-color: cp.$blackbeard-selection-bg;
+  color: cp.$blackbeard-selection-fg-light;
+  border: 2px solid cp.$blackbeard-selection-fg-light;
+}
+
+/* Tooltips */
+tooltip,
+GimpDock tooltip {
+  background-color: cp.$blackbeard-black-dark;
+  color: cp.$blackbeard-fg-dark;
+  border: 1px solid cp.$blackbeard-fg-dark;
+  border-radius: 6px;
+  padding: 5px 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress Bars */
+GimpDock progressbar {
+  background-color: cp.$blackbeard-brblack-dark;
+  border-radius: v.$corner-radius;
+}
+
+GimpDock progressbar progress {
+  background-color: cp.$blackbeard-green-dark;
+  border-radius: v.$corner-radius;
+}
+
+/* Scales (Sliders) */
+GimpDock scale trough {
+  background-color: cp.$blackbeard-brblack-dark;
+  border: 1px solid cp.$blackbeard-black-dark;
+  border-radius: v.$corner-radius;
+}
+
+GimpDock scale slider {
+  background-color: cp.$blackbeard-brblue-dark;
+  border: 1px solid cp.$blackbeard-cyan-dark;
+  border-radius: 50%;
+  min-width: 12px;
+  min-height: 12px;
+}
+
+GimpDock scale slider:hover {
+  background-color: cp.$blackbeard-cyan-dark;
+}
+
+GimpDock scale slider:active {
+  background-color: cp.$blackbeard-green-dark;
+}
+
+/* Statusbar */
+GimpStatusbar {
+  background-color: cp.$blackbeard-black-dark;
+  color: cp.$blackbeard-fg-dark;
+  border-top: 1px solid cp.$blackbeard-brblack-dark;
+  padding: 2px;
+  border-radius: 0 0 v.$corner-radius v.$corner-radius;
+}
+
+/* Dialogs */
+GimpToolDialog,
+GimpDock dialog {
+  background-color: cp.$blackbeard-bg-dark;
+  color: cp.$blackbeard-fg-dark;
+  border-radius: v.$corner-radius;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
