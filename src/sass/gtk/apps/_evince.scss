@@ -1,5 +1,5 @@
 // sass/gtk/apps/_evince.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 .ev-view-window {
   background-color: $theme_bg;

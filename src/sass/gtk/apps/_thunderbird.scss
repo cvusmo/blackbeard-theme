@@ -1,5 +1,5 @@
 // sass/gtk/apps/_thunderbird.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 window#messengerWindow {
   background-color: $theme_bg;

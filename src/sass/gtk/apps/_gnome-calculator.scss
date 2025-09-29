@@ -1,5 +1,5 @@
 // sass/gtk/apps/_gnome-calculator.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 .calculator-display {
   background-color: $base-alt;

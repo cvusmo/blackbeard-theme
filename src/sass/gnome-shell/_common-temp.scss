@@ -1,0 +1,5 @@
+// src/sass/gnome-shell/_common-temp.scss
+@mixin gnome-shell-common {
+  border: 1px solid $gnome-shell-panel-bg;
+  border-radius: 4px;
+}

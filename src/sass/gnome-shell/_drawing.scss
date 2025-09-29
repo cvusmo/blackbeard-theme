@@ -1,0 +1,7 @@
+// src/sass/gnome-shell/_drawing.scss
+@mixin gnome-shell-bg {
+  background-color: $gnome-shell-bg;
+}
+@mixin gnome-shell-fg {
+  color: $gnome-shell-fg;
+}

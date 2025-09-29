@@ -1,9 +1,10 @@
-$variant: 'light';
+$dark: false;
+$light: true;
 $topbar: 'light';
 
-@import '../../sass/variables';
-@import '../../sass/colors';
-@import '../../sass/gtk/drawing-4.0';
-@import '../../sass/gtk/common-4.0';
-@import '../../sass/gtk/apps-4.0';
-@import '../../sass/gtk/colors-public';
+@use '../../sass/_variables' as v with ($dark: $dark, $light: $light);
+@use '../../sass/_colors' as c with ($dark: $dark, $light: $light);
+@use '../../sass/gtk/_drawing-4.0';
+@use '../../sass/gtk/_common-4.0';
+@use '../../sass/gtk/_apps-4.0';
+@use '../../sass/gtk/_colors-public';

@@ -1,0 +1,106 @@
+// sass/gtk/apps/_waybar.scss
+@use '../_common-3.0' as gtk;
+
+    /* General Waybar Styling */
+* {
+  border: none;
+  font-family: 'Hurmit Nerd Font';
+  font-size: 18px;
+  min-height: 24px;
+  color: #F4E3C1;
+  background: transparent;
+}
+
+#waybar {
+  background-color: #1C1B1A;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+/* Left Section */
+#custom-arch, #workspaces {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#custom-arch:hover {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Workspace Buttons */
+#workspaces button {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#workspaces button:hover {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+#workspaces button.active {
+  color: #F6E8CD;
+  border: 1px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Center Section */
+#custom-weather, #custom-hyprclock {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#custom-weather:hover, #custom-hyprclock:hover {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Weather Popup Styling */
+#custom-weather .tooltip {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: 2px solid #F4E3C1;
+  background: #1C1B1A;
+}
+
+/* Right Section */
+#custom-spotify, #pulseaudio, #network, #custom-cpu-usage, #custom-gpu-usage, #custom-disk-usage {
+  color: #F4E3C1;
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background: transparent;
+}
+
+#custom-spotify:hover, #pulseaudio:hover, #network:hover, #custom-cpu-usage:hover, #custom-gpu-usage:hover, #custom-disk-usage:hover {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
+}
+
+/* Pulseaudio Active State */
+#pulseaudio:active {
+  color: #F6E8CD;
+  border: 2px solid #F4E3C1;
+  background: #9280E8;
+}

@@ -1,5 +1,5 @@
 // sass/gtk/apps/_gedit.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 .gedit-document-panel {
   background-color: $theme_bg;

@@ -1,5 +1,5 @@
 // sass/gtk/apps/_mate.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 .mate-panel {
   background-color: $theme_bg;

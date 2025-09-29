@@ -1,7 +1,7 @@
 // sass/gtk/_colors-public.scss
 
 // Import colors for Blackbeard variables
-@import '../../colors';
+@use '../_colors' as c;
 
 // GTK Named Colors
 @define-color theme_fg_color #{ $text };

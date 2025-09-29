@@ -1,5 +1,5 @@
 // sass/gtk/apps/_xfce.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 .xfce-panel {
   background-color: $theme_bg;

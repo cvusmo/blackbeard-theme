@@ -1,7 +1,7 @@
 $variant: 'dark';
 $topbar: 'dark';
 
-@import '../../sass/colors';
-@import '../../sass/gnome-shell/variables';
-@import '../../sass/gnome-shell/drawing';
-@import '../../sass/gnome-shell/common-temp';
+@use '../../sass/colors';
+@use '../../sass/gnome-shell/variables' as v;
+@use '../../sass/gnome-shell/drawing' as d;
+@use '../../sass/gnome-shell/common-temp' as ct;

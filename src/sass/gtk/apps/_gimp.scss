@@ -1,5 +1,5 @@
 // sass/gtk/apps/_gimp.scss
-@import '../../gtk';
+@use '../_common-3.0' as gtk;
 
 GimpToolbox {
     background-color: $theme_bg;
